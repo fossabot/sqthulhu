@@ -21,6 +21,10 @@ build:
           env:
             MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: yes
             MARIADB_DATABASE: sqthulhu
+          ports:
+            - 3306
+          ramdisks:
+            - /var/lib/data
       dependencies:
         override:
           - composer self-update
