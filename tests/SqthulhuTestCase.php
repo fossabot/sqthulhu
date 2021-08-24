@@ -17,10 +17,11 @@ class SqthulhuTestCase extends TestCase
             'utf8mb4'
         );
 
-        static::$pdo = new PDO($dsn, $_ENV['TEST_DB_USER'], $_ENV['TEST_DB_PASSWORD']);
-
-
-
+        static::$pdo = new PDO(
+            $dsn,
+            $_ENV['TEST_DB_USER'],
+            isset($_ENV['TEST_DB_PASSWORD']) ? $_ENV['TEST_DB_PASSWORD'] : null
+        );
     }
     private static function createTables(): void
     {

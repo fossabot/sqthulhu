@@ -2,6 +2,10 @@
 
 PHP Database Toolkit for MariaDB & MySQL
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/MisterIcy/sqthulhu/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/MisterIcy/sqthulhu/?branch=main)
+[![Code Coverage](https://scrutinizer-ci.com/g/MisterIcy/sqthulhu/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/MisterIcy/sqthulhu/?branch=main)
+[![Build Status](https://scrutinizer-ci.com/g/MisterIcy/sqthulhu/badges/build.png?b=main)](https://scrutinizer-ci.com/g/MisterIcy/sqthulhu/build-status/main)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/MisterIcy/sqthulhu/badges/code-intelligence.svg?b=main)](https://scrutinizer-ci.com/code-intelligence)
 ## License
 
 Copyright 2021 Alexandros Koutroulis
