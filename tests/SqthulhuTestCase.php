@@ -11,9 +11,8 @@ class SqthulhuTestCase extends TestCase
     public static function setUpBeforeClass(): void
     {
         $dsn = sprintf(
-            'mysql:host=%s;dbname=%s;charset=%s',
+            'mysql:host=%s;charset=%s',
             $_ENV['TEST_DB_HOST'],
-            $_ENV['TEST_DB_SCHEMA'],
             'utf8mb4'
         );
 
@@ -22,6 +21,9 @@ class SqthulhuTestCase extends TestCase
             $_ENV['TEST_DB_USER'],
             isset($_ENV['TEST_DB_PASSWORD']) ? $_ENV['TEST_DB_PASSWORD'] : null
         );
+
+        static::$pdo->exec('CREATE DATABASE IF NOT EXISTS sqthulhu');
+        static::$pdo->exec('USE sqthulhu');
     }
     private static function createTables(): void
     {
