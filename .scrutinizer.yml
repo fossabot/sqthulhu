@@ -19,8 +19,7 @@ build:
         mariadb:
           image: docker.io/library/mariadb:10.5
           env:
-            MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: yes
-            MARIADB_DATABASE: sqthulhu
+            MYSQL_DATABASE: sqthulhu
           ports:
             - 3306
           ramdisks:
