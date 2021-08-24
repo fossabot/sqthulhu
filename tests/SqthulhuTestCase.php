@@ -24,6 +24,7 @@ class SqthulhuTestCase extends TestCase
 
         static::$pdo->exec('CREATE DATABASE IF NOT EXISTS sqthulhu');
         static::$pdo->exec('USE sqthulhu');
+        static::createTables();
     }
     private static function createTables(): void
     {
