@@ -43,6 +43,6 @@ abstract class AbstractDefinition
      * @param array $definition
      * @return static
      */
-    abstract static function create(array $definition): self;
+    abstract public static function create(array $definition): self;
 
 }
