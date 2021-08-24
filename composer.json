@@ -1,0 +1,32 @@
+{
+    "name": "mistericy/sqlthulhu",
+    "description": "Database Toolkit for MariaDB & MySQL",
+    "type": "project",
+    "require": {
+        "php": "^7.4 || >=8.0",
+        "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "phpstan/phpstan": "^0.12"
+    },
+    "license": "Apache-2.0",
+    "autoload": {
+        "psr-4": {
+            "MisterIcy\\Sqlthulhu\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MisterIcy\\Sqthulhu\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alexandros Koutroulis",
+            "email": "icyd3mon@gmail.com"
+        }
+    ]
+}
