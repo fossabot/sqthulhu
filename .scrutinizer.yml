@@ -1,0 +1,32 @@
+checks:
+  php: true
+
+filter:
+  paths:
+    - "src/*"
+
+build:
+  environment:
+    php:
+      version: 8.0
+  nodes:
+    analysis:
+      tests:
+        override:
+          - php-scrutinizer-run
+    tests-and-coverage:
+      services:
+        mariadb: 10.5
+      dependencies:
+        override:
+          - composer self-update
+          - composer update --prefer-dist --no-interaction --no-progress --optimize-autoloader
+      tests:
+        before:
+          - 'mysql -u root -e "CREATE DATABASE sqthulhu"'
+        override:
+          command: "./vendor/bin/phpunit --coverage-clover ./coverage.xml"
+          on_node: 1
+          coverage:
+            file: coverage.xml
+            format: php-clover
