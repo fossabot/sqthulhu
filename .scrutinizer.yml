@@ -25,6 +25,7 @@ build:
         before:
           - 'mysql -u root -e "CREATE DATABASE sqthulhu"'
         override:
+          -
           command: "./vendor/bin/phpunit --coverage-clover ./coverage.xml"
           on_node: 1
           coverage:
