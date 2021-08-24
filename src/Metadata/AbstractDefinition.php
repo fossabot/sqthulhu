@@ -40,7 +40,7 @@ abstract class AbstractDefinition
     /**
      * Creates a definition from a Database Row.
      *
-     * @param array $definition
+     * @param array<string, string> $definition
      * @return static
      */
     abstract public static function create(array $definition): self;

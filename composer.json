@@ -6,7 +6,8 @@
         "php": "^8.0 || ^8.1",
         "ext-pdo": "*",
         "ext-pdo_mysql": "*",
-        "ext-json": "*"
+        "ext-json": "*",
+        "symfony/dotenv": "^5.3"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",

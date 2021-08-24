@@ -88,19 +88,20 @@ final class TableDefinition extends AbstractDefinition
         $reflectionClass = new \ReflectionClass(self::class);
         foreach ($reflectionClass->getProperties() as $property) {
             foreach ($property->getAttributes() as $attribute) {
-                if ($attribute instanceof MetadataColumn && array_key_exists($attribute->columnName, $definition)) {
-                    $value = $definition[$attribute->columnName];
-                    switch ($attribute->type) {
-                        case MetadataColumn::TYPE_INT:
-                            $value = intval($value);
-                            break;
-                        case MetadataColumn::TYPE_FLOAT:
-                            $value = floatval($value);
-                            break;
-                        case MetadataColumn::TYPE_STRING:
-                        default:
-                            $value = strval($value);
+                if ($attribute->getName() === MetadataColumn::class) {
+                    /** @var MetadataColumn $metaColumn */
+                    $metaColumn = $attribute->newInstance();
+                    if (!array_key_exists($metaColumn->columnName, $definition)) {
+                        continue;
                     }
+
+                    $value = $definition[$metaColumn->columnName];
+                    $value = match ($metaColumn->type) {
+                        MetadataColumn::TYPE_INT => intval($value),
+                        MetadataColumn::TYPE_FLOAT => floatval($value),
+                        default => strval($value),
+                    };
+                    $property->setAccessible(true);
                     $property->setValue($def, $value);
                 }
             }
