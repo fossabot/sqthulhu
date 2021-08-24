@@ -16,14 +16,7 @@ build:
           - php-scrutinizer-run
     tests-and-coverage:
       services:
-        mariadb:
-          image: docker.io/library/mariadb:10.5
-          env:
-            MYSQL_DATABASE: sqthulhu
-          ports:
-            - 3306
-          ramdisks:
-            - /var/lib/data
+        mariadb: 10.5
       dependencies:
         override:
           - composer self-update
