@@ -16,7 +16,11 @@ build:
           - php-scrutinizer-run
     tests-and-coverage:
       services:
-        mariadb: 10.5
+        mariadb:
+          image: docker.io/library/mariadb:10.5
+          env:
+            MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: yes
+            MARIADB_DATABASE: sqthulhu
       dependencies:
         override:
           - composer self-update
